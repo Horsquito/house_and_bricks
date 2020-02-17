@@ -1,0 +1,14 @@
+{% extends "brick_counter/base_page.html" %}
+
+{% block title %}
+    Create Task
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create">
+    </form>
+    {% include "brick_counter/return_to_main_page.html" %}
+{% endblock %}

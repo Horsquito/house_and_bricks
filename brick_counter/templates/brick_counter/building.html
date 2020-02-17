@@ -1,0 +1,14 @@
+{% extends "brick_counter/base_page.html" %}
+
+{% block title %}
+    Создание задания
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'brick_counter:building' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create">
+    </form>
+    {% include "brick_counter/return_to_main_page.html" %}
+{% endblock %}

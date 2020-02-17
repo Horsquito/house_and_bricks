@@ -1,0 +1,36 @@
+{% extends "brick_counter/base_page.html" %}
+
+{% block title %}
+    Информация о доме
+{% endblock %}
+
+
+{% block content %}
+    <h2>{{ house.address }}</h2>
+    <div>
+        <div>
+            <p>
+                Год постройки - {{ house.year_of_construction }}
+            </p>
+        </div>
+        {% if house.task %}
+        <div>
+            <p>
+                Количество кирпичей в доме - {{ house.task.number_of_bricks }}
+            </p>
+            <p>
+                Время закладки кирпичей в дом - {{ house.task.date_and_time }}
+            </p>
+        </div>
+        {% else %}
+        <div>
+            <a href="{% url 'brick_counter:create_task' house.pk %}">
+                <p>
+                    Положить кирпичи в дом
+                </p>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% include "brick_counter/return_to_main_page.html" %}
+{% endblock %}

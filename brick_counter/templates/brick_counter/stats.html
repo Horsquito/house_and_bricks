@@ -1,0 +1,34 @@
+{% extends "brick_counter/base_page.html" %}
+
+{% block title %}
+    Дом и кирпичи в нем
+{% endblock %}
+
+{% block content %}
+    <h1>Статистика по домам</h1>
+    {% for house in house_list %}
+        <div>
+            <a href="{% url 'brick_counter:house_page' house.pk %}">
+                <p>
+                    {{ house.address }} - {{ house.year_of_construction }}
+                </p>
+            </a>
+        </div>
+        <div>
+            <p>
+                Количество кирпичей  доме - {{ house.task }}
+            </p>
+            <p>
+                Дата и время закладки кирпичей в дом - {{ house.task.date_and_time }}
+            </p>
+        </div>
+        <hr>
+    {% endfor %}
+    <div>
+        <a href="{% url 'brick_counter:building' %}">
+            <p>
+                Создать дом
+            </p>
+        </a>
+    </div>
+{% endblock %}
