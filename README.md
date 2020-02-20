@@ -14,6 +14,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+Для запуска тестов:
+```
+python manage.py test
+```
+
 Для того чтобы увидеть статистику:
 ```
 http://127.0.0.1:8000/stats/
